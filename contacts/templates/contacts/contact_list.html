@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Agenda Virtual</title>
+
+    <link rel="stylesheet"  href="{% static 'bootstrap/css/bootstrap.min.css' %}"> 
+</head>
+<body class="container py-5">
+    <div class="p-5 border border-1 shadow">
+        <h1 class="fw-bold text-primary"> Bienvenido a Mi Agenda  </h1>
+        <h2> con esta aplicación podrás gestionar tu agenda virtual</h2>
+        <p>
+            consulta, crea, actualiza y elimina tus contactos de forma facil y segura.
+        </p>
+
+    </div>
+
+    <div class="mt-5">
+        <h3> Mis Contactos </h3>
+
+        <div class="text-end">
+            <a href="" class="btn btn-outline-primary">
+                Resgistrar Contactos
+            </a>
+    
+        </div>
+    </div>
+        <table class="mt-5 table table-hover">
+            <thead>
+                <tr>
+                    <th> Nombres </th>
+                    <th> F. Nacimiento</th>
+                    <th> Celular </th>
+                    <th> F. registro </th>
+                    <th></th>        
+                </tr>
+
+            </thead>
+            <tbody>
+                {% for contact in object_list %}
+                <tr>
+                    <td>
+                        <div class="fw-bold">{{contact.name}}</div>
+                        <div>{{contact.email}}</div>
+                    </td>
+                    <td>{{contact.birth}}</td>
+                    <td>{{contact.phone}}</td>
+                    <td>{{contact.created|date:'d/m/Y'}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-primary">Editar</a>
+                            <a href="" class="btn btn-danger">Eliminar</a>
+
+                            
+                        </div>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    
+
+    
+
+    
+
+
+    <script src="{% stactic 'bootsrap/js/bootstrap.min.js'}"></script>
+    
+</body>
+</html>
+
+
